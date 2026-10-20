@@ -1,0 +1,18 @@
+services:
+  waha:
+    image: devlikeapro/waha:noweb-2026.9.2
+    container_name: waha
+    restart: unless-stopped
+    mem_limit: 2g
+    memswap_limit: 2g
+    ports:
+      - '127.0.0.1:3100:3000'
+    volumes:
+      - waha_sessions:/app/.sessions
+    environment:
+      WAHA_API_KEY: ${WAHA_API_KEY}
+      WHATSAPP_DEFAULT_ENGINE: NOWEB
+      WHATSAPP_START_SESSION: default
+      WHATSAPP_RESTART_ALL_SESSIONS: 'true'
+volumes:
+  waha_sessions:

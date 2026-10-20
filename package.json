@@ -1,0 +1,25 @@
+{
+  "name": "whatsapp-moderator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "dotenv -- npx convex dev",
+    "build": "npx convex deploy",
+    "deploy": "npm run build",
+    "env:set": "dotenv -- bash -c 'npx convex env set WAHA_URL \"$WAHA_URL\" && npx convex env set WAHA_API_KEY \"$WAHA_API_KEY\"'",
+    "env:list": "npx convex env list",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npm install && npm run env:set",
+    "logs": "npx convex logs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "convex": "^1.28.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.4.2"
+  }
+}

@@ -1,0 +1,23 @@
+services:
+  - name: whatsapp-moderator-waha
+    type: docker
+    image: devlikeapro/waha:plus
+    instance_type: nano
+    regions:
+      - fra
+    ports:
+      - port: 3000
+        protocol: http
+    env:
+      - key: WHATSAPP_HOOK_URL
+        value: ${CONVEX_WEBHOOK_URL}/webhooks/waha
+      - key: WHATSAPP_HOOK_EVENTS
+        value: message
+      - key: WHATSAPP_START_SESSION
+        value: default
+      - key: WHATSAPP_SWAGGER_CONFIG_ADVANCED
+        value: "true"
+      - key: WHATSAPP_LOG_LEVEL
+        value: info
+      - key: WHATSAPP_PRINT_QR
+        value: "true"
